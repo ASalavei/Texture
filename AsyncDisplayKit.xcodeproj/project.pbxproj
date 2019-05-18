@@ -323,6 +323,10 @@
 		BB5FC3D11F9C9389007F191E /* ASTabBarControllerTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = BB5FC3D01F9C9389007F191E /* ASTabBarControllerTests.mm */; };
 		C018DF21216BF26700181FDA /* ASAbstractLayoutController+FrameworkPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = C018DF20216BF26600181FDA /* ASAbstractLayoutController+FrameworkPrivate.h */; };
 		C057D9BD20B5453D00FC9112 /* ASTextNode2SnapshotTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = C057D9BC20B5453D00FC9112 /* ASTextNode2SnapshotTests.mm */; };
+		C54F4A8C2290135E00B56841 /* AsyncDisplayKit+IGListKitMethods.h in Sources */ = {isa = PBXBuildFile; fileRef = CC034A111E649F1300626263 /* AsyncDisplayKit+IGListKitMethods.h */; };
+		C54F4A8D229014C400B56841 /* IGListAdapter+AsyncDisplayKit.mm in Sources */ = {isa = PBXBuildFile; fileRef = CCE04B211E313EB9006AEBBB /* IGListAdapter+AsyncDisplayKit.mm */; };
+		C54F4A8E2290151500B56841 /* ASIGListAdapterBasedDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = CCBD05DF1E4147B000D18509 /* ASIGListAdapterBasedDataSource.h */; };
+		C54F4A8F2290154500B56841 /* ASIGListAdapterBasedDataSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = CCBD05DE1E4147B000D18509 /* ASIGListAdapterBasedDataSource.mm */; };
 		C579A55C22689B1300AD2930 /* IGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C579A55B22689B1300AD2930 /* IGListKit.framework */; };
 		C579A56122689CE500AD2930 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C579A55F22689CE400AD2930 /* PINRemoteImage.framework */; };
 		C579A56222689CE500AD2930 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C579A56022689CE400AD2930 /* PINCache.framework */; };
@@ -2109,6 +2113,7 @@
 				E5C347B31ECB40AA00EC4BE4 /* ASTableNode+Beta.h in Headers */,
 				6900C5F41E8072DA00BCD75C /* ASImageNode+Private.h in Headers */,
 				68B0277B1C1A79D60041016B /* ASDisplayNode+Beta.h in Headers */,
+				C54F4A8E2290151500B56841 /* ASIGListAdapterBasedDataSource.h in Headers */,
 				B350622D1B010EFD0018CF92 /* ASScrollDirection.h in Headers */,
 				254C6B751BF94DF4003EC431 /* ASTextKitComponents.h in Headers */,
 				B35062081B010EFD0018CF92 /* ASScrollNode.h in Headers */,
@@ -2398,6 +2403,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C54F4A8F2290154500B56841 /* ASIGListAdapterBasedDataSource.mm in Sources */,
+				C54F4A8D229014C400B56841 /* IGListAdapter+AsyncDisplayKit.mm in Sources */,
+				C54F4A8C2290135E00B56841 /* AsyncDisplayKit+IGListKitMethods.h in Sources */,
 				68355B3E1CB57A60001D4E68 /* ASPINRemoteImageDownloader.mm in Sources */,
 				E5B225291F1790EE001E1431 /* ASHashing.mm in Sources */,
 				DEB8ED7C1DD003D300DBDE55 /* ASLayoutTransition.mm in Sources */,
