@@ -442,7 +442,28 @@ ASSynthesizeLockingMethodsWithMutex(__instanceLock__);
     if (self.primitiveTraitCollection.userInterfaceStyle != previousTraitCollection.userInterfaceStyle) {
       // When changing between light and dark mode, often the entire node needs to re-render.
       // This change doesn't happen frequently so it's fairly safe to render nodes again
+      BOOL needsClippingCornerUpdate = NO;
+      CGFloat cornerRadius = _cornerRadius;
+      ASCornerRoundingType cornerRoundingType = _cornerRoundingType;
+      UIColor *backgroundColor = _backgroundColor;
+      if (_loaded(self)) {
+        CGColorRef cgBackgroundColor = backgroundColor.CGColor;
+        if (!CGColorEqualToColor(_layer.backgroundColor, cgBackgroundColor)) {
+          // Background colors do not dynamically update for layer backed nodes since they utilize CGColorRef
+          // instead of UIColor. Non layer backed node also receive color to the layer (see [_ASPendingState -applyToView:withSpecialPropertiesHandling:]).
+          // We utilize the _backgroundColor instance variable to track the full dynamic color
+          // and apply any changes here when trait collection updates occur.
+          _layer.backgroundColor = cgBackgroundColor;
+        }
+        // If we have clipping corners, re-render the clipping corner layer upon user interface style change
+        if (cornerRoundingType == ASCornerRoundingTypeClipping && cornerRadius > 0.0f) {
+          needsClippingCornerUpdate = YES;
+        }
+      }
       __instanceLock__.unlock();
+      if (needsClippingCornerUpdate) {
+        [self _updateClipCornerLayerContentsWithRadius:cornerRadius backgroundColor:backgroundColor];
+      }
       [self setNeedsDisplay];
       return;
     }
