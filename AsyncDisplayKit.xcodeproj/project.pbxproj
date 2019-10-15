@@ -321,13 +321,17 @@
 		BB5FC3D11F9C9389007F191E /* ASTabBarControllerTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = BB5FC3D01F9C9389007F191E /* ASTabBarControllerTests.mm */; };
 		C018DF21216BF26700181FDA /* ASAbstractLayoutController+FrameworkPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = C018DF20216BF26600181FDA /* ASAbstractLayoutController+FrameworkPrivate.h */; };
 		C057D9BD20B5453D00FC9112 /* ASTextNode2SnapshotTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = C057D9BC20B5453D00FC9112 /* ASTextNode2SnapshotTests.mm */; };
+		C5016A9A2355ABDC0089F8C5 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5016A992355ABDC0089F8C5 /* PINRemoteImage.framework */; };
+		C5016A9B2355ABDC0089F8C5 /* PINRemoteImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5016A992355ABDC0089F8C5 /* PINRemoteImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C5016A9E2355ABE00089F8C5 /* IGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5016A9D2355ABE00089F8C5 /* IGListKit.framework */; };
+		C5016A9F2355ABE00089F8C5 /* IGListKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5016A9D2355ABE00089F8C5 /* IGListKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C54F4A8C2290135E00B56841 /* AsyncDisplayKit+IGListKitMethods.h in Sources */ = {isa = PBXBuildFile; fileRef = CC034A111E649F1300626263 /* AsyncDisplayKit+IGListKitMethods.h */; };
 		C54F4A8D229014C400B56841 /* IGListAdapter+AsyncDisplayKit.mm in Sources */ = {isa = PBXBuildFile; fileRef = CCE04B211E313EB9006AEBBB /* IGListAdapter+AsyncDisplayKit.mm */; };
 		C54F4A8E2290151500B56841 /* ASIGListAdapterBasedDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = CCBD05DF1E4147B000D18509 /* ASIGListAdapterBasedDataSource.h */; };
 		C54F4A8F2290154500B56841 /* ASIGListAdapterBasedDataSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = CCBD05DE1E4147B000D18509 /* ASIGListAdapterBasedDataSource.mm */; };
-		C579A55C22689B1300AD2930 /* IGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C579A55B22689B1300AD2930 /* IGListKit.framework */; };
-		C579A56122689CE500AD2930 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C579A55F22689CE400AD2930 /* PINRemoteImage.framework */; };
-		C579A56222689CE500AD2930 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C579A56022689CE400AD2930 /* PINCache.framework */; };
+		C579A55C22689B1300AD2930 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		C579A56122689CE500AD2930 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		C579A56222689CE500AD2930 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		C78F7E2B1BF7809800CDEAFC /* ASTableNode.h in Headers */ = {isa = PBXBuildFile; fileRef = B0F880581BEAEC7500D17647 /* ASTableNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC01EB6D23105C2000CDB61A /* TestAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC01EB6C23105C2000CDB61A /* TestAsset.xcassets */; };
 		CC01EB6F23105C7F00CDB61A /* ASImageNodeSnapshotTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 056D21541ABCEF50001107EF /* ASImageNodeSnapshotTests.mm */; };
@@ -533,6 +537,21 @@
 			remoteInfo = AsyncDisplayKitTestHost;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C5016A9C2355ABDC0089F8C5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C5016A9B2355ABDC0089F8C5 /* PINRemoteImage.framework in Embed Frameworks */,
+				C5016A9F2355ABE00089F8C5 /* IGListKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		044285011BAA3CC700D16268 /* AsyncDisplayKit.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = AsyncDisplayKit.modulemap; sourceTree = "<group>"; };
@@ -860,6 +879,8 @@
 		BDC2D162BD55A807C1475DA5 /* Pods-AsyncDisplayKitTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncDisplayKitTests.profile.xcconfig"; path = "Pods/Target Support Files/Pods-AsyncDisplayKitTests/Pods-AsyncDisplayKitTests.profile.xcconfig"; sourceTree = "<group>"; };
 		C018DF20216BF26600181FDA /* ASAbstractLayoutController+FrameworkPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASAbstractLayoutController+FrameworkPrivate.h"; sourceTree = "<group>"; };
 		C057D9BC20B5453D00FC9112 /* ASTextNode2SnapshotTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ASTextNode2SnapshotTests.mm; sourceTree = "<group>"; };
+		C5016A992355ABDC0089F8C5 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = ../../Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
+		C5016A9D2355ABE00089F8C5 /* IGListKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IGListKit.framework; path = ../../Build/iOS/IGListKit.framework; sourceTree = "<group>"; };
 		CC01EB6C23105C2000CDB61A /* TestAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TestAsset.xcassets; sourceTree = "<group>"; };
 		CC034A071E60BEB400626263 /* ASDisplayNode+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASDisplayNode+Convenience.h"; sourceTree = "<group>"; };
 		CC034A081E60BEB400626263 /* ASDisplayNode+Convenience.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ASDisplayNode+Convenience.mm"; sourceTree = "<group>"; };
@@ -1094,15 +1115,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5016A9A2355ABDC0089F8C5 /* PINRemoteImage.framework in Frameworks */,
 				CC36C19C218B847400232F23 /* CoreMedia.framework in Frameworks */,
 				CC36C19A218B846F00232F23 /* CoreLocation.framework in Frameworks */,
+				C5016A9E2355ABE00089F8C5 /* IGListKit.framework in Frameworks */,
 				CC36C198218B846300232F23 /* QuartzCore.framework in Frameworks */,
-				C579A55C22689B1300AD2930 /* IGListKit.framework in Frameworks */,
+				C579A55C22689B1300AD2930 /* (null) in Frameworks */,
 				CC36C196218B845B00232F23 /* AVFoundation.framework in Frameworks */,
-				C579A56222689CE500AD2930 /* PINCache.framework in Frameworks */,
+				C579A56222689CE500AD2930 /* (null) in Frameworks */,
 				CC36C194218B844800232F23 /* Foundation.framework in Frameworks */,
 				CC36C193218B842E00232F23 /* CoreGraphics.framework in Frameworks */,
-				C579A56122689CE500AD2930 /* PINRemoteImage.framework in Frameworks */,
+				C579A56122689CE500AD2930 /* (null) in Frameworks */,
 				CC36C191218B841A00232F23 /* CoreText.framework in Frameworks */,
 				CC36C18F218B841600232F23 /* UIKit.framework in Frameworks */,
 				92DD2FE61BF4D05E0074C9DD /* MapKit.framework in Frameworks */,
@@ -1163,7 +1186,8 @@
 		058D09AE195D04C000B7D73C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C579A55B22689B1300AD2930 /* IGListKit.framework */,
+				C5016A9D2355ABE00089F8C5 /* IGListKit.framework */,
+				C5016A992355ABDC0089F8C5 /* PINRemoteImage.framework */,
 				CC36C19B218B847400232F23 /* CoreMedia.framework */,
 				CC36C199218B846F00232F23 /* CoreLocation.framework */,
 				CC36C197218B846300232F23 /* QuartzCore.framework */,
@@ -1177,8 +1201,6 @@
 				058D09AF195D04C000B7D73C /* Foundation.framework */,
 				058D09BD195D04C000B7D73C /* XCTest.framework */,
 				058D09C0195D04C000B7D73C /* UIKit.framework */,
-				C579A56022689CE400AD2930 /* PINCache.framework */,
-				C579A55F22689CE400AD2930 /* PINRemoteImage.framework */,
 				EFA731F0396842FF8AB635EE /* libPods-AsyncDisplayKitTests.a */,
 			);
 			name = Frameworks;
@@ -2183,6 +2205,7 @@
 				B35061D61B010EDF0018CF92 /* Frameworks */,
 				B35061D71B010EDF0018CF92 /* Headers */,
 				B35061D81B010EDF0018CF92 /* Resources */,
+				C5016A9C2355ABDC0089F8C5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
