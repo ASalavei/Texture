@@ -322,9 +322,7 @@
 		C018DF21216BF26700181FDA /* ASAbstractLayoutController+FrameworkPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = C018DF20216BF26600181FDA /* ASAbstractLayoutController+FrameworkPrivate.h */; };
 		C057D9BD20B5453D00FC9112 /* ASTextNode2SnapshotTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = C057D9BC20B5453D00FC9112 /* ASTextNode2SnapshotTests.mm */; };
 		C5016A9A2355ABDC0089F8C5 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5016A992355ABDC0089F8C5 /* PINRemoteImage.framework */; };
-		C5016A9B2355ABDC0089F8C5 /* PINRemoteImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5016A992355ABDC0089F8C5 /* PINRemoteImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C5016A9E2355ABE00089F8C5 /* IGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5016A9D2355ABE00089F8C5 /* IGListKit.framework */; };
-		C5016A9F2355ABE00089F8C5 /* IGListKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5016A9D2355ABE00089F8C5 /* IGListKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C54F4A8C2290135E00B56841 /* AsyncDisplayKit+IGListKitMethods.h in Sources */ = {isa = PBXBuildFile; fileRef = CC034A111E649F1300626263 /* AsyncDisplayKit+IGListKitMethods.h */; };
 		C54F4A8D229014C400B56841 /* IGListAdapter+AsyncDisplayKit.mm in Sources */ = {isa = PBXBuildFile; fileRef = CCE04B211E313EB9006AEBBB /* IGListAdapter+AsyncDisplayKit.mm */; };
 		C54F4A8E2290151500B56841 /* ASIGListAdapterBasedDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = CCBD05DF1E4147B000D18509 /* ASIGListAdapterBasedDataSource.h */; };
@@ -545,8 +543,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C5016A9B2355ABDC0089F8C5 /* PINRemoteImage.framework in Embed Frameworks */,
-				C5016A9F2355ABE00089F8C5 /* IGListKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
