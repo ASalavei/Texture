@@ -64,7 +64,7 @@
 #import <AsyncDisplayKit/ASPagerNode+Beta.h>
 
 #import <AsyncDisplayKit/ASNodeController+Beta.h>
-#import <AsyncDisplayKit/ASViewController.h>
+#import <AsyncDisplayKit/ASDKViewController.h>
 #import <AsyncDisplayKit/ASNavigationController.h>
 #import <AsyncDisplayKit/ASTabBarController.h>
 #import <AsyncDisplayKit/ASRangeControllerUpdateRangeProtocol+Beta.h>
@@ -129,5 +129,5 @@
 
 #import <AsyncDisplayKit/IGListAdapter+AsyncDisplayKit.h>
 #import <AsyncDisplayKit/AsyncDisplayKit+IGListKitMethods.h>
-#import <AsyncDisplayKit/ASLayout+IGListKit.h>
+#import <AsyncDisplayKit/ASLayout+IGListDiffKit.h>
 #import <AsyncDisplayKit/ASGraphicsContext.h>

@@ -47,40 +47,46 @@ typedef struct {
   unowned UIContentSizeCategory preferredContentSizeCategory API_AVAILABLE(ios(10.0));
 
   CGSize containerSize;
+
+#if TARGET_OS_IOS
+  UIUserInterfaceLevel userInterfaceLevel API_AVAILABLE(ios(13.0)) API_UNAVAILABLE(tvos);
+#endif
+  UIAccessibilityContrast accessibilityContrast API_AVAILABLE(ios(13.0));
+  UILegibilityWeight legibilityWeight API_AVAILABLE(ios(13.0));
 } ASPrimitiveTraitCollection;
 #pragma clang diagnostic pop
 
 /**
  * Creates ASPrimitiveTraitCollection with default values.
  */
-AS_EXTERN ASPrimitiveTraitCollection ASPrimitiveTraitCollectionMakeDefault(void);
+ASDK_EXTERN ASPrimitiveTraitCollection ASPrimitiveTraitCollectionMakeDefault(void);
 
 /**
  * Creates a ASPrimitiveTraitCollection from a given UITraitCollection.
  */
-AS_EXTERN ASPrimitiveTraitCollection ASPrimitiveTraitCollectionFromUITraitCollection(UITraitCollection *traitCollection);
+ASDK_EXTERN ASPrimitiveTraitCollection ASPrimitiveTraitCollectionFromUITraitCollection(UITraitCollection *traitCollection);
 
 /**
  * Creates a UITraitCollection from a given ASPrimitiveTraitCollection.
  */
-AS_EXTERN UITraitCollection * ASPrimitiveTraitCollectionToUITraitCollection(ASPrimitiveTraitCollection traitCollection);
+ASDK_EXTERN UITraitCollection * ASPrimitiveTraitCollectionToUITraitCollection(ASPrimitiveTraitCollection traitCollection);
 
 
 /**
  * Compares two ASPrimitiveTraitCollection to determine if they are the same.
  */
-AS_EXTERN BOOL ASPrimitiveTraitCollectionIsEqualToASPrimitiveTraitCollection(ASPrimitiveTraitCollection lhs, ASPrimitiveTraitCollection rhs);
+ASDK_EXTERN BOOL ASPrimitiveTraitCollectionIsEqualToASPrimitiveTraitCollection(ASPrimitiveTraitCollection lhs, ASPrimitiveTraitCollection rhs);
 
 /**
  * Returns a string representation of a ASPrimitiveTraitCollection.
  */
-AS_EXTERN NSString *NSStringFromASPrimitiveTraitCollection(ASPrimitiveTraitCollection traits);
+ASDK_EXTERN NSString *NSStringFromASPrimitiveTraitCollection(ASPrimitiveTraitCollection traits);
 
 /**
  * This function will walk the layout element hierarchy and updates the layout element trait collection for every
  * layout element within the hierarchy.
  */
-AS_EXTERN void ASTraitCollectionPropagateDown(id<ASLayoutElement> element, ASPrimitiveTraitCollection traitCollection);
+ASDK_EXTERN void ASTraitCollectionPropagateDown(id<ASLayoutElement> element, ASPrimitiveTraitCollection traitCollection);
 
 /**
  * Abstraction on top of UITraitCollection for propagation within AsyncDisplayKit-Layout
@@ -99,7 +105,7 @@ AS_EXTERN void ASTraitCollectionPropagateDown(id<ASLayoutElement> element, ASPri
  * @abstract Sets a trait collection on this environment state.
  *
  * @discussion This only exists as an internal convenience method. Users should not override trait collection using it.
- * Use [ASViewController overrideDisplayTraitsWithTraitCollection] block instead.
+ * Use [ASDKViewController overrideDisplayTraitsWithTraitCollection] block instead.
  */
 - (void)setPrimitiveTraitCollection:(ASPrimitiveTraitCollection)traitCollection;
 
@@ -147,6 +153,13 @@ AS_SUBCLASSING_RESTRICTED
 @property (readonly) UIContentSizeCategory preferredContentSizeCategory  API_AVAILABLE(ios(10.0));
 
 @property (readonly) CGSize containerSize;
+
+#if TARGET_OS_IOS
+@property (readonly) UIUserInterfaceLevel userInterfaceLevel API_AVAILABLE(ios(13.0)) API_UNAVAILABLE(tvos);
+#endif
+
+@property (readonly) UIAccessibilityContrast accessibilityContrast API_AVAILABLE(ios(13.0));
+@property (readonly) UILegibilityWeight legibilityWeight API_AVAILABLE(ios(13.0));
 
 - (BOOL)isEqualToTraitCollection:(ASTraitCollection *)traitCollection;
 
