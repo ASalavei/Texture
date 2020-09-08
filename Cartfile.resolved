@@ -1,5 +1,5 @@
 git "https://chromium.googlesource.com/webm/libwebp" "v0.6.0"
 github "Instagram/IGListKit" "ee883d308dba8c31a32777983eda58bc548a3c42"
-github "pinterest/PINCache" "3.0.1-beta.7"
+github "pinterest/PINCache" "3.0.1-beta.8"
 github "pinterest/PINOperation" "1.1.2"
 github "pinterest/PINRemoteImage" "3.0.0-beta.14"
