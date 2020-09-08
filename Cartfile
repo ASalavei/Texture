@@ -1,3 +1,3 @@
-github "pinterest/PINRemoteImage" "3.0.0"
-github "pinterest/PINCache" "3.0.1-beta.8"
+github "pinterest/PINRemoteImage" "master"
+github "pinterest/PINCache" "master"
 github "Instagram/IGListKit" "master"
