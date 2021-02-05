@@ -1,2 +1,4 @@
-github "pinterest/PINRemoteImage" "3.0.0-beta.14"
-github "pinterest/PINCache" "3.0.1-beta.7"
+github "pinterest/PINCache" "master"
+github "pinterest/PINRemoteImage" "master"
+github "pinterest/PINOperation" "master"
+github "AYastrebov/IGListKit" "space"
