@@ -1,0 +1,136 @@
+PODS:
+  - IGListDiffKit (4.1.0)
+  - IGListKit (4.1.0):
+    - IGListDiffKit (= 4.1.0)
+  - PINCache (3.0.3):
+    - PINCache/Arc-exception-safe (= 3.0.3)
+    - PINCache/Core (= 3.0.3)
+  - PINCache/Arc-exception-safe (3.0.3):
+    - PINCache/Core
+  - PINCache/Core (3.0.3):
+    - PINOperation (~> 1.2.1)
+  - PINOperation (1.2.1)
+  - PINRemoteImage (3.0.3):
+    - PINRemoteImage/PINCache (= 3.0.3)
+  - PINRemoteImage/Core (3.0.3):
+    - PINOperation
+  - PINRemoteImage/iOS (3.0.3):
+    - PINRemoteImage/Core
+  - PINRemoteImage/PINCache (3.0.3):
+    - PINCache (~> 3.0.3)
+    - PINRemoteImage/Core
+  - SocketRocket (0.5.1)
+  - Texture (3.0.0):
+    - Texture/AssetsLibrary (= 3.0.0)
+    - Texture/Core (= 3.0.0)
+    - Texture/MapKit (= 3.0.0)
+    - Texture/Photos (= 3.0.0)
+    - Texture/PINRemoteImage (= 3.0.0)
+    - Texture/Video (= 3.0.0)
+  - Texture/AssetsLibrary (3.0.0):
+    - Texture/Core
+  - Texture/Core (3.0.0)
+  - Texture/IGListKit (3.0.0):
+    - IGListDiffKit (~> 4.0)
+    - IGListKit (~> 4.0)
+    - Texture/Core
+  - Texture/MapKit (3.0.0):
+    - Texture/Core
+  - Texture/Photos (3.0.0):
+    - Texture/Core
+  - Texture/PINRemoteImage (3.0.0):
+    - PINRemoteImage/iOS (~> 3.0.0)
+    - PINRemoteImage/PINCache
+    - Texture/Core
+  - Texture/Video (3.0.0):
+    - Texture/Core
+  - Texture/Yoga (3.0.0):
+    - Texture/Core
+    - Yoga (= 1.6.0)
+  - Weaver (0.1.2):
+    - SocketRocket (= 0.5.1)
+    - Texture (>= 2.3.4)
+    - Weaver/Core (= 0.1.2)
+    - Weaver/Video (= 0.1.2)
+  - Weaver/Core (0.1.2):
+    - SocketRocket (= 0.5.1)
+    - Texture (>= 2.3.4)
+  - Weaver/Video (0.1.2):
+    - SocketRocket (= 0.5.1)
+    - Texture (>= 2.3.4)
+    - Weaver/Core
+  - Yoga (1.6.0)
+
+DEPENDENCIES:
+  - "IGListDiffKit (from `git@github.com:AYastrebov/IGListKit.git`, branch `space`)"
+  - "IGListKit (from `git@github.com:AYastrebov/IGListKit.git`, branch `space`)"
+  - "PINCache (from `git@github.com:pinterest/PINCache.git`, branch `master`)"
+  - "PINOperation (from `git@github.com:pinterest/PINOperation.git`, branch `master`)"
+  - "PINRemoteImage (from `git@github.com:pinterest/PINRemoteImage.git`, branch `master`)"
+  - Texture/IGListKit (from `../..`)
+  - Texture/PINRemoteImage (from `../..`)
+  - Texture/Video (from `../..`)
+  - Texture/Yoga (from `../..`)
+  - Weaver (from `https://github.com/TextureGroup/Weaver.git`, branch `master`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - SocketRocket
+    - Yoga
+
+EXTERNAL SOURCES:
+  IGListDiffKit:
+    :branch: space
+    :git: "git@github.com:AYastrebov/IGListKit.git"
+  IGListKit:
+    :branch: space
+    :git: "git@github.com:AYastrebov/IGListKit.git"
+  PINCache:
+    :branch: master
+    :git: "git@github.com:pinterest/PINCache.git"
+  PINOperation:
+    :branch: master
+    :git: "git@github.com:pinterest/PINOperation.git"
+  PINRemoteImage:
+    :branch: master
+    :git: "git@github.com:pinterest/PINRemoteImage.git"
+  Texture:
+    :path: "../.."
+  Weaver:
+    :branch: master
+    :git: https://github.com/TextureGroup/Weaver.git
+
+CHECKOUT OPTIONS:
+  IGListDiffKit:
+    :commit: c213bf66ba06ecd069eb53bbdb365b30e5fb5f7f
+    :git: "git@github.com:AYastrebov/IGListKit.git"
+  IGListKit:
+    :commit: c213bf66ba06ecd069eb53bbdb365b30e5fb5f7f
+    :git: "git@github.com:AYastrebov/IGListKit.git"
+  PINCache:
+    :commit: b129a79cbdf7644ac5be426b3aa0ce526b46f5ba
+    :git: "git@github.com:pinterest/PINCache.git"
+  PINOperation:
+    :commit: 6af973c07d0ae822eacf93892ad6a879abee8ddf
+    :git: "git@github.com:pinterest/PINOperation.git"
+  PINRemoteImage:
+    :commit: 543c2bce568f36dadef19e90340b0cdffc8c26b2
+    :git: "git@github.com:pinterest/PINRemoteImage.git"
+  Weaver:
+    :commit: 10092bac38555406f8240d2466f932d457341917
+    :git: https://github.com/TextureGroup/Weaver.git
+
+SPEC CHECKSUMS:
+  IGListDiffKit: 7d70583ef1f7883b23b40a21051844c6036128ca
+  IGListKit: a2345833762c4ebdf576ed6a51e35db701f0c2f0
+  PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
+  PINOperation: 00c935935f1e8cf0d1e2d6b542e75b88fc3e5e20
+  PINRemoteImage: f1295b29f8c5e640e25335a1b2bd9d805171bd01
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  Texture: 41ce7d2fdff193a45cc8cfa3c254115cf776068a
+  Weaver: 4c8324197c88921e3bd6e056a4d274fc043a7984
+  Yoga: 81670877477311136b1b3f69a6307ce62e1c89cf
+
+PODFILE CHECKSUM: ed004d9a870c04f2e49e765b684742f85dc74130
+
+COCOAPODS: 1.10.1

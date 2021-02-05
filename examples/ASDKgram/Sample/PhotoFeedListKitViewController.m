@@ -35,6 +35,8 @@
     CGSize screenWidthImageSize = CGSizeMake(screenRect.size.width * screenScale, screenRect.size.width * screenScale);
     _photoFeed = [[PhotoFeedModel alloc] initWithPhotoFeedModelType:PhotoFeedModelTypePopular imageSize:screenWidthImageSize];
 
+    node.delegate = self;
+    
     IGListAdapterUpdater *updater = [[IGListAdapterUpdater alloc] init];
     _listAdapter = [[IGListAdapter alloc] initWithUpdater:updater viewController:self workingRangeSize:0];
     _listAdapter.dataSource = self;

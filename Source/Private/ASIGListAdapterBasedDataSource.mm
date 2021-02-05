@@ -83,23 +83,114 @@ typedef struct {
 
 - (void)collectionNode:(ASCollectionNode *)collectionNode didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+  if ([self.collectionDelegate respondsToSelector:@selector(collectionNode:didSelectItemAtIndexPath:)]) {
+    [self.collectionDelegate collectionNode:collectionNode didSelectItemAtIndexPath:indexPath];
+    return;
+  }
+    
   [self.delegate collectionView:collectionNode.view didSelectItemAtIndexPath:indexPath];
 }
 
 - (void)collectionNode:(ASCollectionNode *)collectionNode didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+  if ([self.collectionDelegate respondsToSelector:@selector(collectionNode:didDeselectItemAtIndexPath:)]) {
+    [self.collectionDelegate collectionNode:collectionNode didDeselectItemAtIndexPath:indexPath];
+    return;
+  }
+  
   [self.delegate collectionView:collectionNode.view didDeselectItemAtIndexPath:indexPath];
 }
 
 - (void)collectionNode:(ASCollectionNode *)collectionNode didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
+  if ([self.collectionDelegate respondsToSelector:@selector(collectionNode:didHighlightItemAtIndexPath:)]) {
+    [self.collectionDelegate collectionNode:collectionNode didHighlightItemAtIndexPath:indexPath];
+    return;
+  }
+  
   [self.delegate collectionView:collectionNode.view didHighlightItemAtIndexPath:indexPath];
 }
 
 - (void)collectionNode:(ASCollectionNode *)collectionNode didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
+  if ([self.collectionDelegate respondsToSelector:@selector(collectionNode:didUnhighlightItemAtIndexPath:)]) {
+    [self.collectionDelegate collectionNode:collectionNode didUnhighlightItemAtIndexPath:indexPath];
+    return;
+  }
+  
   [self.delegate collectionView:collectionNode.view didUnhighlightItemAtIndexPath:indexPath];
 }
+
+- (BOOL)shouldBatchFetchForCollectionNode:(ASCollectionNode *)collectionNode
+{
+  if ([self.collectionDelegate respondsToSelector:@selector(shouldBatchFetchForCollectionNode:)]) {
+    return [self.collectionDelegate shouldBatchFetchForCollectionNode:collectionNode];
+  }
+
+  NSInteger sectionCount = [self numberOfSectionsInCollectionNode:collectionNode];
+  if (sectionCount == 0) {
+    return NO;
+  }
+
+  // If they implement shouldBatchFetch, call it. Otherwise, just say YES if they implement beginBatchFetch.
+  ASIGSectionController *ctrl = [self sectionControllerForSection:sectionCount - 1];
+  ASSectionControllerOverrides o = [ASIGListAdapterBasedDataSource overridesForSectionControllerClass:ctrl.class];
+  BOOL result = (o.shouldBatchFetch ? [ctrl shouldBatchFetch] : o.beginBatchFetchWithContext);
+  if (result) {
+    self.sectionControllerForBatchFetching = ctrl;
+  }
+  return result;
+}
+
+- (void)collectionNode:(ASCollectionNode *)collectionNode willBeginBatchFetchWithContext:(ASBatchContext *)context
+{
+  if ([self.collectionDelegate respondsToSelector:@selector(collectionNode:willBeginBatchFetchWithContext:)]) {
+    [self.collectionDelegate collectionNode:collectionNode willBeginBatchFetchWithContext:context];
+    return;
+  }
+  
+  ASIGSectionController *ctrl = self.sectionControllerForBatchFetching;
+  self.sectionControllerForBatchFetching = nil;
+  [ctrl beginBatchFetchWithContext:context];
+}
+
+- (void)collectionNode:(ASCollectionNode *)collectionNode willDisplayItemWithNode:(ASCellNode *)node
+{
+  if ([self.collectionDelegate respondsToSelector:@selector(collectionNode:willDisplayItemWithNode:)]) {
+    [self.collectionDelegate collectionNode:collectionNode willDisplayItemWithNode:node];
+    return;
+  }
+  
+  NSIndexPath *indexPath = [collectionNode.view indexPathForNode:node];
+  UIView *contentView = node.view.superview;
+  UICollectionViewCell *cell = (UICollectionViewCell *)contentView.superview;
+
+  if (cell == nil || indexPath == nil) {
+    return;
+  }
+
+  [self.delegate collectionView:collectionNode.view willDisplayCell:cell forItemAtIndexPath:indexPath];
+}
+
+- (void)collectionNode:(ASCollectionNode *)collectionNode didEndDisplayingItemWithNode:(ASCellNode *)node
+{
+  if ([self.collectionDelegate respondsToSelector:@selector(collectionNode:didEndDisplayingItemWithNode:)]) {
+    [self.collectionDelegate collectionNode:collectionNode didEndDisplayingItemWithNode:node];
+    return;
+  }
+  
+  NSIndexPath *indexPath = [collectionNode.view indexPathForNode:node];
+  UIView *contentView = node.view.superview;
+  UICollectionViewCell *cell = (UICollectionViewCell *)contentView.superview;
+
+  if (cell == nil || indexPath == nil) {
+    return;
+  }
+
+  [self.delegate collectionView:collectionNode.view didEndDisplayingCell:cell forItemAtIndexPath:indexPath];
+}
+
+#pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -129,65 +220,6 @@ typedef struct {
   [self.delegate scrollViewDidEndDecelerating:scrollView];
 }
 
-- (BOOL)shouldBatchFetchForCollectionNode:(ASCollectionNode *)collectionNode
-{
-  if ([_collectionDelegate respondsToSelector:@selector(shouldBatchFetchForCollectionNode:)]) {
-    return [_collectionDelegate shouldBatchFetchForCollectionNode:collectionNode];
-  }
-
-  NSInteger sectionCount = [self numberOfSectionsInCollectionNode:collectionNode];
-  if (sectionCount == 0) {
-    return NO;
-  }
-
-  // If they implement shouldBatchFetch, call it. Otherwise, just say YES if they implement beginBatchFetch.
-  ASIGSectionController *ctrl = [self sectionControllerForSection:sectionCount - 1];
-  ASSectionControllerOverrides o = [ASIGListAdapterBasedDataSource overridesForSectionControllerClass:ctrl.class];
-  BOOL result = (o.shouldBatchFetch ? [ctrl shouldBatchFetch] : o.beginBatchFetchWithContext);
-  if (result) {
-    self.sectionControllerForBatchFetching = ctrl;
-  }
-  return result;
-}
-
-- (void)collectionNode:(ASCollectionNode *)collectionNode willBeginBatchFetchWithContext:(ASBatchContext *)context
-{
-  if ([_collectionDelegate respondsToSelector:@selector(collectionNode:willBeginBatchFetchWithContext:)]) {
-    [_collectionDelegate collectionNode:collectionNode willBeginBatchFetchWithContext:context];
-    return;
-  }
-  
-  ASIGSectionController *ctrl = self.sectionControllerForBatchFetching;
-  self.sectionControllerForBatchFetching = nil;
-  [ctrl beginBatchFetchWithContext:context];
-}
-
-- (void)collectionNode:(ASCollectionNode *)collectionNode willDisplayItemWithNode:(ASCellNode *)node
-{
-  NSIndexPath *indexPath = [collectionNode.view indexPathForNode:node];
-  UIView *contentView = node.view.superview;
-  UICollectionViewCell *cell = (UICollectionViewCell *)contentView.superview;
-
-  if (cell == nil || indexPath == nil) {
-    return;
-  }
-
-  [self.delegate collectionView:collectionNode.view willDisplayCell:cell forItemAtIndexPath:indexPath];
-}
-
-- (void)collectionNode:(ASCollectionNode *)collectionNode didEndDisplayingItemWithNode:(ASCellNode *)node
-{
-  NSIndexPath *indexPath = [collectionNode.view indexPathForNode:node];
-  UIView *contentView = node.view.superview;
-  UICollectionViewCell *cell = (UICollectionViewCell *)contentView.superview;
-
-  if (cell == nil || indexPath == nil) {
-    return;
-  }
-
-  [self.delegate collectionView:collectionNode.view didEndDisplayingCell:cell forItemAtIndexPath:indexPath];
-}
-
 /**
  * Note: It is not documented that ASCollectionNode will forward these UIKit delegate calls if they are implemented.
  * It is not considered harmful to do so, and adding them to documentation will confuse most users, who should
@@ -203,6 +235,10 @@ typedef struct {
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
   [self.delegate collectionView:collectionView didEndDisplayingCell:cell forItemAtIndexPath:indexPath];
+}
+
+- (UIContextMenuConfiguration *)collectionView:(UICollectionView *)collectionView contextMenuConfigurationForItemAtIndexPath:(NSIndexPath *)indexPath point:(CGPoint)point  API_AVAILABLE(ios(13.0)) {
+    return [self.delegate collectionView:collectionView contextMenuConfigurationForItemAtIndexPath:indexPath point:point];
 }
 
 #pragma mark - ASCollectionDelegateFlowLayout

@@ -96,6 +96,24 @@
   });
 }
 
+- (UIContextMenuConfiguration *)contextMenuConfigurationForItemAtIndex:(NSInteger)index point:(CGPoint)point {
+  UIContextMenuConfiguration *configuration = [UIContextMenuConfiguration configurationWithIdentifier:@"contextMenu"
+                                                                                      previewProvider:nil
+                                                                                       actionProvider:^UIMenu *(NSArray<UIMenuElement *> *suggestedActions) {
+    
+    UIAction *menuAction = [UIAction actionWithTitle:@"Action"
+                                               image:[UIImage systemImageNamed:@"envelope.open"]
+                                          identifier:@"someId"
+                                             handler:^(__kindof UIAction * _Nonnull action) {
+      NSLog(@"Do something useful");
+    }];
+    
+    return [UIMenu menuWithTitle:@"Menu title" children:@[menuAction]];
+  }];
+  
+  return configuration;
+}
+
 #pragma mark - RefreshingSectionControllerType
 
 - (void)refreshContentWithCompletion:(void(^)())completion

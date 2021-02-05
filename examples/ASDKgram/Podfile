@@ -1,6 +1,12 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
 target 'Sample' do
+  pod 'PINRemoteImage', :git => 'git@github.com:pinterest/PINRemoteImage.git', :branch => 'master'
+  pod 'PINCache', :git => 'git@github.com:pinterest/PINCache.git', :branch => 'master'
+  pod 'PINOperation', :git => 'git@github.com:pinterest/PINOperation.git', :branch => 'master'
+  pod 'IGListKit', :git => 'git@github.com:AYastrebov/IGListKit.git', :branch => 'space'
+  pod 'IGListDiffKit', :git => 'git@github.com:AYastrebov/IGListKit.git', :branch => 'space'
+
   pod 'Texture/IGListKit', :path => '../..'
   pod 'Texture/PINRemoteImage', :path => '../..'
   pod 'Texture/Yoga', :path => '../..'
